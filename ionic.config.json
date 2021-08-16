@@ -1,5 +1,7 @@
 {
   "name": "cursoVideosApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
