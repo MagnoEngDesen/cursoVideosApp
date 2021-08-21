@@ -1,15 +1,38 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color ="dark">
-    <ion-title>
-      SériesFlix
-    </ion-title>
+  <ion-toolbar color="dark">
+    <ion-title> {{titulo}} </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"color = "light">
+<ion-content [fullscreen]="true" color="light">
+  <ion-searchbar placeholder="Buscar"> </ion-searchbar>
 
-  <ion-searchbar placeholder = "Buscar"> </ion-searchbar>
-
-
-
+  <ion-list>
+    <ion-item-sliding *ngFor="let video of listaVideos">
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img
+            [src]="video.cartaz"
+          />
+        </ion-thumbnail>
+        <ion-label>
+          <div>
+            <h1>{{video.nome}}</h1>
+            <p>{{video.lancamento}} - {{video.duracao}}</p>
+            <ion-badge color="light" *ngFor="let genero of video.generos">
+              {{genero}}
+            </ion-badge>
+          </div>
+        </ion-label>
+        <ion-chip>
+          <ion-label color="success">{{video.classificacao}}</ion-label>
+        </ion-chip>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="laranja" (click)= "exibirAlertaFavorito()">
+          <ion-icon name="star-sharp"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

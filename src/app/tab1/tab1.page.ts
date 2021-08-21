@@ -1,3 +1,4 @@
+import { IVideo } from '../../models/IVideo.model';
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
@@ -8,10 +9,25 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
+
+  titulo = 'VideosFlix';
+  listaVideos: IVideo[] = [
+    {
+      nome: 'Luca (2021)',
+      lancamento: '17/06/2021',
+      duracao:'1h 41m',
+      classificacao: 76,
+      cartaz:'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/9jPa6SlUYxPFMVZlEuceiPPAA15.jpg',
+      generos: ['Animação', 'Comédia', 'Família', 'Fantasia']
+    }
+  ];
+
+
   constructor(
     public alertController: AlertController,
     public toastController: ToastController
   ) {}
+
 
   async exibirAlertaFavorito() {
     const alert = await this.alertController.create({
