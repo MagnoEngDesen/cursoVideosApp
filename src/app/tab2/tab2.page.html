@@ -8,24 +8,24 @@
   <ion-searchbar placeholder="Buscar"> </ion-searchbar>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let video of listaVideos">
-      <ion-item>
+    <ion-item-sliding *ngFor="let series of listaVideos">
+      <ion-item (click)="exibirSeries(series)">
         <ion-thumbnail slot="start">
           <img
-            [src]="video.cartaz"
+            [src]="series.cartaz"
           />
         </ion-thumbnail>
         <ion-label>
           <div>
-            <h1>{{video.nome}}</h1>
-            <p>{{video.lancamento}} - {{video.duracao}}</p>
-            <ion-badge color="light" *ngFor="let genero of video.generos">
+            <h1>{{series.nome}}</h1>
+            <p>{{series.lancamento}} - {{series.duracao}}</p>
+            <ion-badge color="light" *ngFor="let genero of series.generos">
               {{genero}}
             </ion-badge>
           </div>
         </ion-label>
         <ion-chip>
-          <ion-label color="success">{{video.classificacao}}</ion-label>
+          <ion-label color="success">{{series.classificacao}}</ion-label>
         </ion-chip>
       </ion-item>
       <ion-item-options side="end">

@@ -5,4 +5,5 @@ export interface IVideo{
   classificacao: number;
   cartaz: string;
   generos: string[];
+  pagina?: string;
 }
