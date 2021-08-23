@@ -1,4 +1,4 @@
-import { IVideo } from 'src/models/IVideo.model';
+import { IFilmeApi } from './../../models/IFilmeAPI.model';
 import { DadosService } from './../services/dados.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,11 +14,15 @@ export class DadosFilmesPage implements OnInit {
 
   primeiro vamos ter que criar uma variavel para guara o filme, mas não vamos atribuir nenhum valor no mento
   da criação(pelo motivo que a pagina não receba um filme vamos ter a variavel null */
-    filme: IVideo;
+  filme: IFilmeApi;
+
+  generos: string[] =[];
+
   constructor(public dadosService: DadosService) {}
 
   ngOnInit() {
     this.filme = this.dadosService.pegarDados('filme');
+    this.generos = this.dadosService.pegarDados('generos');
     console.log('Filme Enviado', this.filme);
   }
 }
